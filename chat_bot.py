@@ -3,6 +3,7 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
 #Train the bot
+chatbot = ChatBot('Training Example')
 trainer = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
 trainer = ChatterBotCorpusTrainer(chatbot)
 
