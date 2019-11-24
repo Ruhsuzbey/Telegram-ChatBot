@@ -31,7 +31,7 @@ updater.start_polling()
 
 def reply(bot, update):
     userText=update.message.text
-    bot.send_message(chat_id=update.message.chat_id, text=str(chatbot.get_response(input())))
+    bot.send_message(chat_id=update.message.chat_id, text=str(chatbot.get_response(userText)))
 
 reply_handler = MessageHandler(Filters.text, reply)
 dispatcher.add_handler(reply_handler)
