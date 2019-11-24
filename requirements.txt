@@ -1,2 +1,3 @@
 chatterbot
 python-telegram-bot
+chatterbot_corpus
