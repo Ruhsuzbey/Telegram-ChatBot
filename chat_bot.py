@@ -4,7 +4,6 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 
 #Train the bot
 english_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
-english_bot.trainer(ChatterBotCorpusTrainer)
 english_bot.train("chatterbot.corpus.english")
 
 #Setting telegram things
