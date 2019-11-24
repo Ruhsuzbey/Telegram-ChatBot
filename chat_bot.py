@@ -3,13 +3,18 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
 #Train the bot
-chatbot = ChatBot('Training Example')
+chatbot = ChatBot('Alice')
 trainer = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
 trainer = ChatterBotCorpusTrainer(chatbot)
 
 trainer.train(
     "chatterbot.corpus.english"
 )
+logic_adapters=[
+        'chatterbot.logic.MathematicalEvaluation',
+        'chatterbot.logic.TimeLogicAdapter',
+        'chatterbot.logic.BestMatch'
+    ],
 
 #Setting telegram things
 tg_token='1069397471:AAGmk6G7aaFjeaUXFB-fKbPNUMHikTDsvp8' # Refer README for more details
