@@ -16,7 +16,6 @@ trainer = ChatterBotCorpusTrainer(chatbot)
 
 trainer.train(
     "chatterbot.corpus.english"
-    "chatterbot.corpus.english.greetings"
 )
 
 #Setting telegram things
