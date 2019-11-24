@@ -3,8 +3,12 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
 #Train the bot
-english_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
-english_bot.train("chatterbot.corpus.english")
+trainer = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
+trainer = ChatterBotCorpusTrainer(chatbot)
+
+trainer.train(
+    "chatterbot.corpus.english"
+)
 
 #Setting telegram things
 tg_token='1069397471:AAGmk6G7aaFjeaUXFB-fKbPNUMHikTDsvp8' # Refer README for more details
@@ -26,7 +30,7 @@ updater.start_polling()
 
 def reply(bot, update):
     userText=update.message.text
-    bot.send_message(chat_id=update.message.chat_id, text=str(english_bot.get_response(userText)))
+    bot.send_message(chat_id=update.message.chat_id, text=str(trainer.get_response(userText)))
 
 reply_handler = MessageHandler(Filters.text, reply)
 dispatcher.add_handler(reply_handler)
